@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-light py-5 text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold text-primary mb-3">Welcome to Medicare Hospital</h1>
+    <p class="lead text-muted">
+      City Hospital has a proud tradition of care. For many years, we’ve served the people of Lucknow and surrounding regions — providing compassionate, modern, and reliable healthcare for every patient.
+    </p>
+  </div>
+</section>
+
+<!-- Vision & Mission -->
+<section class="container my-5">
+  <div class="row g-4 align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body text-center bg-success text-white rounded-4 p-4">
+          <h2 class="fw-bold">Our Vision</h2>
+          <p class="mt-3">
+            To provide every patient with world-class care, exceptional service, and compassion —
+            the same we would want for our own loved ones. We aim to lead the evolution of healthcare for healthier communities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body text-center bg-info text-white rounded-4 p-4">
+          <h2 class="fw-bold">Our Mission</h2>
+          <p class="mt-3">
+            Our mission is to deliver quality healthcare services, promote wellness, relieve suffering,
+            and restore health swiftly and humanely — ensuring the highest value for every individual we serve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold text-primary">Our Services</h2>
+    <div class="row g-4">
+
+      <!-- Card 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card shadow-lg border-0 h-100 rounded-4">
+          <img src="{% static 'image/kid.jpg' %}" class="card-img-top rounded-top-4" alt="Child Care">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Child Care</h5>
+            <p class="card-text text-muted">Expert pediatricians providing world-class care for children.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card shadow-lg border-0 h-100 rounded-4">
+          <img src="{% static 'image/Cardiology.jpg' %}" class="card-img-top rounded-top-4" alt="Cardiology">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Cardiology</h5>
+            <p class="card-text text-muted">Comprehensive cardiac care with state-of-the-art facilities.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card shadow-lg border-0 h-100 rounded-4">
+          <img src="{% static 'image/dentalcare.jpg' %}" class="card-img-top rounded-top-4" alt="Eye Care">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Eye Care</h5>
+            <p class="card-text text-muted">Advanced vision treatments by leading ophthalmologists.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card shadow-lg border-0 h-100 rounded-4">
+          <img src="{% static 'image/gynacology.jpg' %}" class="card-img-top rounded-top-4" alt="Surgery">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Surgery</h5>
+            <p class="card-text text-muted">Precision surgical procedures by experienced specialists.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="our-doctors py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Our Doctors</h2>
+      <p class="text-muted">Meet our team of experienced healthcare professionals dedicated to your well-being.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Doctor 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/ladydoc1.jpg' %}" alt="Dr. A" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Anjali Menon</h5>
+          <p class="text-muted">Neurologist</p>
+        </div>
+      </div>
+
+      <!-- Doctor 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/boy1.jpg' %}" alt="Dr. B" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Samuel John</h5>
+          <p class="text-muted">Cardiologistt</p>
+        </div>
+      </div>
+
+      <!-- Doctor 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/boy2.jpg' %}" alt="Dr. C" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Hari</h5>
+          <p class="text-muted">Dermatologist</p>
+        </div>
+      </div>
+
+      <!-- Doctor 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/boy2.jpg' %}" alt="Dr. D" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Vishal Reddy</h5>
+          <p class="text-muted">Orthopedic Surgeon</p>
+        </div>
+      </div>
+
+      <!-- Doctor 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/boy3.jpg' %}" alt="Dr. E" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Dinesh Suresh</h5>
+          <p class="text-muted">Pediatrician</p>
+        </div>
+      </div>
+
+      <!-- Doctor 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="doctor-card text-center p-4 shadow-sm rounded-4">
+          <img src="{% static 'image/boy3.jpg' %}" alt="Dr. F" class="doctor-img mb-3">
+          <h5 class="fw-bold text-dark mb-1">Dr. Arjun Varma</h5>
+          <p class="text-muted">General Physician</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

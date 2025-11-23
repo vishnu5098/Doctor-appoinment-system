@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Doctor Dashboard | Medicare
+{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Dashboard Layout ===== */
+  .dashboard-section {
+    background: #f8faff;
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+
+  .dashboard-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+  }
+
+  .dashboard-card h2 {
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 25px;
+  }
+
+  /* ===== Table Styling ===== */
+  .table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+
+  th {
+    background: #007bff;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+  }
+
+  td {
+    text-align: center;
+    padding: 12px;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  tr:hover {
+    background-color: #f1f8ff;
+  }
+
+  /* ===== Status Badges ===== */
+  .badge-status {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+
+  .badge-pending {
+    background: #ffc107;
+    color: #212529;
+  }
+
+  .badge-approved {
+    background: #28a745;
+    color: #fff;
+  }
+
+  .badge-cancelled {
+    background: #dc3545;
+    color: #fff;
+  }
+
+  /* ===== Buttons ===== */
+  .action-btn {
+    font-size: 0.85rem;
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin: 2px;
+    text-decoration: none;
+    color: #fff !important;
+    transition: 0.3s;
+  }
+
+  .btn-approve {
+    background: #28a745;
+  }
+
+  .btn-cancel {
+    background: #dc3545;
+  }
+
+  .btn-approve:hover {
+    background: #218838;
+  }
+
+  .btn-cancel:hover {
+    background: #c82333;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .dashboard-card {
+      padding: 20px;
+    }
+    th, td {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<section class="dashboard-section">
+  <div class="container">
+    <div class="dashboard-card">
+      <h2 class="text-center mb-4"><i class="fas fa-calendar-check me-2"></i>Appointment Requests</h2>
+
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Doctor</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for s in appointments %}
+            <tr>
+              <td>{{ s.booking.p_name }}</td>
+              <td>{{ s.booking.doc_name }}</td>
+              <td>{{ s.booking.booking_date }}</td>
+              <td>
+                {% if s.status == "Pending" %}
+                  <span class="badge-status badge-pending">Pending</span>
+                {% elif s.status == "Approved" %}
+                  <span class="badge-status badge-approved">Approved</span>
+                {% elif s.status == "Cancelled" %}
+                  <span class="badge-status badge-cancelled">Cancelled</span>
+                {% else %}
+                  {{ s.status }}
+                {% endif %}
+              </td>
+              <td>
+                {% if s.status == "Pending" %}
+                  <a href="{% url 'approve' s.id %}" class="action-btn btn-approve">Approve</a>
+                  <a href="{% url 'cancel' s.id %}" class="action-btn btn-cancel">Cancel</a>
+                {% else %}
+                  <span class="text-muted">No Action</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" class="text-center text-muted py-3">No appointment requests found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Booking
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center">Make an appoinment</h1>
+<hr>
+<h5 class="text-center mt-3" 
+    style="color:#2c3e50; font-weight:600;">
+    Once your appointment is completed, you can check your current status —
+    <a href="{% url 'status' %}" 
+       style="color:#0d6efd; text-decoration:none; font-weight:600;">
+       Click here
+    </a>
+</h5>
+<div class="container w-50 p-3 text-center my-5 " style="background-color: #B6CEB4;">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary " type="submit">Submit</button>
+ 
+</form>
+</div>
+{% endblock %}

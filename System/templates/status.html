@@ -1,0 +1,67 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+Status
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Booking Status</h2>
+
+<style>
+.status-table th,.status-table td{
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.status-table{
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 80%;
+  font-family: Arial, sans-serif;
+}
+.status-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+.status-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.status-table tr:hover {
+  background-color: #ddd;
+}
+</style>
+
+<table class="status-table">
+  <tr>
+    <th>Patient Name</th>
+    <th>Booking Date</th>
+    <th>Doctor Name</th>
+    <th>Booking Time</th>
+    <th>Status</th>   <!-- ✅ NEW COLUMN -->
+  </tr>
+
+  {% for x in stat %}
+  <tr>
+    <td>{{ x.booking.p_name }}</td>
+    <td>{{ x.booking.booking_date }}</td>
+    <td>{{ x.booking.doc_name }}</td>
+    <td>{{ x.booking.booking_datetime }}</td>
+    <td>
+      {% if x.status == "Pending" %}
+        <span style="color: orange;">Pending</span>
+
+      {% elif x.status == "Approved" %}
+        <span style="color: green; font-weight: bold;">Approved</span>
+
+      {% elif x.status == "Cancelled" %}
+        <span style="color: red; font-weight: bold;">Cancelled</span>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
+
